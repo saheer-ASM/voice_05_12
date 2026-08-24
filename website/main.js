@@ -74,6 +74,7 @@ async function startAudio() {
         source.connect(processor);
         
         updateStatus("🎤 Streaming audio to ESP32...", "connected");
+        instructionText.textContent = "Click Stop Streaming to end streaming.";
         startBtn.style.display = "none";
         stopBtn.style.display = "inline-block";
 
@@ -103,5 +104,6 @@ function stopStreaming() {
     startBtn.style.display = "inline-block";
     startBtn.disabled = false;
     stopBtn.style.display = "none";
-    updateStatus("Streaming stopped", "info");
+    instructionText.textContent = "Click Start Streaming to begin voice control.";
+    updateStatus("Streaming stopped. Awaiting user input...", "info");
 }
